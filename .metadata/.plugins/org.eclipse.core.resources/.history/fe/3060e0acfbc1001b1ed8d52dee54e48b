@@ -1,0 +1,5 @@
+package com.iykim.mysqlconnproj.repository;
+
+public interface UserRepository {
+
+}
