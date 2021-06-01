@@ -12,7 +12,7 @@ import com.iykim.mysqlconnproj.entity.UserEntity;
 import com.iykim.mysqlconnproj.repository.UserRepository;
 
 @RestController
-@RequestMapping(path = "/user_m")
+@RequestMapping(path = "/users")
 public class UserController {
 
 	@Autowired
