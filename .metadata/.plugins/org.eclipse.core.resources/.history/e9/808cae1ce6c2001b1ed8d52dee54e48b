@@ -1,0 +1,20 @@
+package com.iykim.mysqlconnproj.entity;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "user_xtn")
+public class ExtendedUserInfoEntity {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+	
+	private int age;
+	private String address;
+
+}
