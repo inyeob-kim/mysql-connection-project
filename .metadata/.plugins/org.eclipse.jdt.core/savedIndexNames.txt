@@ -12,7 +12,6 @@ INDEX VERSION 1.131+/Users/inyeobkim/Desktop/java-spring-project/mysql-connectio
 1849152981.index
 350791980.index
 515229061.index
-2433367485.index
 4278559767.index
 2380525726.index
 1061633720.index
