@@ -1,0 +1,20 @@
+package com.iykim.mysqlconnproj.repository;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.iykim.mysqlconnproj.model.User;
+
+@Repository
+public interface UserRepository extends JpaRepository<User, Long>{
+	
+	
+	User findByEmail(String email);
+	
+	List<User> findByFirstNameAndLastName(String firstNAme, String lastName);
+	
+	List<User> findAllUsers();
+	
+}

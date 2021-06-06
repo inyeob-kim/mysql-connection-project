@@ -1,0 +1,5 @@
+package com.iykim.mysqlconnproj.dto;
+
+public class UserDto {
+
+}

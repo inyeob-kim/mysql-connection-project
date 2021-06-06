@@ -1,39 +1,47 @@
 package com.iykim.mysqlconnproj.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.iykim.mysqlconnproj.entity.UserEntity;
-import com.iykim.mysqlconnproj.repository.UserRepository;
+import com.iykim.mysqlconnproj.dto.UserDto;
+import com.iykim.mysqlconnproj.service.UserService;
 
 @RestController
-@RequestMapping(path = "/user_m")
+@RequestMapping(path = "/user_account")
 public class UserController {
 
 	@Autowired
-	private UserRepository userRepo;
+	private UserService userService;
 
-	@PostMapping(path = "/add")
-	public @ResponseBody String addNewUser(@RequestParam String firstName, @RequestParam String lastName,
-			@RequestParam String email) {
-
-		UserEntity newUser = new UserEntity();
-		newUser.setFirstName(firstName);
-		newUser.setLastName(lastName);
-		newUser.setEmail(email);
-
-		userRepo.save(newUser);
-
-		return "New user successfully added!";
+	// GET
+	@GetMapping("/email")
+	public ResponseEntity<UserDto> getUserByEmail(@RequestParam String email) {
+		return ResponseEntity.ok(UserDto.createUserDtoGET(userService.findUserByEmail(email)));
 	}
 
-	@GetMapping(path = "/all")
-	public @ResponseBody Iterable<UserEntity> getAllUsers() {
-		return userRepo.findAll();
+	@GetMapping("/id")
+	public ResponseEntity<UserDto> getUserById(@RequestParam int id) {
+		return ResponseEntity.ok(UserDto.createUserDtoGET(userService.findUserById(id)));
 	}
+
+	// POST
+//	@PostMapping("/add")
+//	public ResponseEntity<?> addNewUser(@RequestParam String firstName, @RequestParam String lastName,
+//			@RequestParam String email, @RequestParam String password) {
+//		User newUser = new User();
+//		newUser.setFirstName(firstName);
+//		newUser.setLastName(lastName);
+//		newUser.setEmail(email);
+//		newUser.setPassword(password);
+//		
+//		UserDto userDto = UserDto.createUserDtoPOST(newUser);
+//		userService.addNewUser(userDto);
+//		
+//		return ResponseEntity.ok("ok");
+//	}
+
 }

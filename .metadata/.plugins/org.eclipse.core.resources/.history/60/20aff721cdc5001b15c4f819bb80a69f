@@ -1,0 +1,25 @@
+package com.iykim.mysqlconnproj.model;
+
+import java.util.Set;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "user_account")
+public class User {
+
+	// Properties
+	@Id
+	@GeneratedType(strategy = Ge)
+	private Long id;
+	private String name;
+	private String email;
+	private String password;
+	private String password_salt;
+	private String password_hash_algorithm;
+
+
+}

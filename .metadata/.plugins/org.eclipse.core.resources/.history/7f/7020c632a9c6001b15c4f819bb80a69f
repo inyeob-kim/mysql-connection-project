@@ -1,0 +1,25 @@
+package com.iykim.mysqlconnproj.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+
+import com.iykim.mysqlconnproj.dto.UserDto;
+import com.iykim.mysqlconnproj.model.User;
+
+@Repository
+public interface UserRepository extends JpaRepository<UserDto, Long> {
+
+	// GET QUERY
+	User findUserByEmail(String email);
+
+	User findUserById(int id);
+
+	// POST QUERY
+
+	String addNewUserQuery = "INSERT INTO user_account VALUE (UserDto.id, UserDto.firstName, UserDto.lastName, UserDto.email, UserDto.password)";
+
+	@Query(addNewUserQuery)
+	User addNewUser(UserDto userDto);
+
+}

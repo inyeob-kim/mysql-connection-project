@@ -1,0 +1,40 @@
+package com.iykim.mysqlconnproj.dto;
+
+import com.iykim.mysqlconnproj.model.User;
+
+import lombok.Data;
+
+@Data
+public class UserDto {
+
+	private int id;
+	private String firstName;
+	private String lastName;
+	private String email;
+	private String password;
+
+	private UserDto(int id, String firstName, String lastName, String email) {
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.pass = null;
+	}
+	
+	private UserDto(int id, String firstName, String lastName, String email, String password) {
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.pass = null;
+	}
+
+	/**
+	 * This function creates UserDto of User Entity...
+	 */
+	public static UserDto createUserDto(User user) {
+		return new UserDto(user.getId(), user.getFirstName(), user.getLastName(), user.getEmail());
+	}
+	
+	
+}

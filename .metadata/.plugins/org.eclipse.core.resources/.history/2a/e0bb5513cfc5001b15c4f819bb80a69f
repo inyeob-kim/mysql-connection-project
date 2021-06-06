@@ -1,0 +1,14 @@
+package com.iykim.mysqlconnproj.service;
+
+import org.springframework.stereotype.Service;
+
+import com.iykim.mysqlconnproj.model.User;
+
+@Service
+public class UserService {
+
+	
+	User findAllUSers() {
+		
+	}
+}

@@ -1,0 +1,12 @@
+package com.iykim.mysqlconnproj.model;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Expense")
+public class Expense {
+	
+	@Id
+	
+}
